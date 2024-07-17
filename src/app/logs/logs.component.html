@@ -1,0 +1,65 @@
+<div class="logs-container">
+  <!-- Title with toggle functionality -->
+  <h3 class="mat-title title" (click)="toggleLogs()" matTooltip="Click to show/hide logs" matTooltipPosition="above">
+    Application logs
+    <mat-icon>{{ showLogs ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+  </h3>
+
+  <!-- Mat Table -->
+  <div *ngIf="showLogs">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort >
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.id }} </mat-cell>
+      </ng-container>
+  
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.date }} </mat-cell>
+      </ng-container>
+  
+      <!-- Component Column -->
+      <ng-container matColumnDef="component">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Component </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.component }} </mat-cell>
+      </ng-container>
+  
+      <!-- Module Column -->
+      <ng-container matColumnDef="module">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Module </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.module }} </mat-cell>
+      </ng-container>
+  
+      <!-- Process Column -->
+      <ng-container matColumnDef="process">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Process </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.process }} </mat-cell>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+        <mat-cell *matCellDef="let log"> {{ log.action }} </mat-cell>
+      </ng-container>
+  
+      <!-- Details Column -->
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Details </mat-header-cell>
+        <mat-cell *matCellDef="let log">
+          <div (click)="openDetails(log.details)" style="cursor: pointer; color: #3f51b5;">
+            {{ log.details | slice:0:30 }}{{ log.details.length > 30 ? '...' : '' }}
+          </div>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

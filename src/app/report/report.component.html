@@ -1,0 +1,15 @@
+<div class="report-container mat-elevation-z2">
+    <mat-form-field appearance="outline">
+        <mat-label>Select Thread or Component:</mat-label>
+        <mat-select [(value)]="selectedComponent">
+            <mat-option *ngFor="let comp of components" [value]="comp">{{ comp }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-button color="primary" (click)="exportReport()">Export Report</button>
+</div>
+
+<div *ngIf="reportResult" class="report-result mat-elevation-z2">
+    <h3>Report Result:</h3>
+    <p>{{ reportResult }}</p>
+</div>

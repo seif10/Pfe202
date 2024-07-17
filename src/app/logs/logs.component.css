@@ -1,0 +1,52 @@
+.mat-elevation-z8 {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 8px;
+}
+
+.mat-header-row, .mat-row {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.mat-header-row {
+  font-weight: bold;
+}
+
+.logs-container {
+  margin: 20px;
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba
+}
+.mat-paginator {
+  background-color: #f5f5f5;
+  margin-top: 16px;
+  border-radius: 8px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align title content evenly */
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 20px; /* Add horizontal padding */
+  background-color: #f0f0f0; /* Light background color */
+  border-radius: 5px; /* Rounded corners */
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.title mat-icon {
+  transition: transform 0.3s ease; /* Smooth transition for icon rotation */
+}
+
+.title:hover {
+  background-color: #e0e0e0; /* Darker background color on hover */
+}

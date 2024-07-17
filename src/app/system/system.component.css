@@ -1,0 +1,64 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Arrange children vertically */
+    width: 100%;
+    min-height: 100vh; /* Full height to center vertically */
+    box-sizing: border-box;
+  }
+
+  .stats-container {
+    margin: 20px;
+  }
+
+  .iframe-container2 {
+    display: flex;
+    gap: 20px; /* Adjust the gap between iframes */
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .iframe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between iframes as needed */
+    justify-content: center; /* Center the iframes horizontally */
+    margin-top: 10px;
+  }
+  
+  .iframe-item {
+    flex: 1 1 450px; /* Adjust the base width of the iframes as needed */
+    max-width: 450px; /* Ensure the iframes do not exceed their intended width */
+  }
+  
+  iframe {
+    display: block;
+    margin: 10px auto; /* Center individual iframes if needed */
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align title content evenly */
+    cursor: pointer;
+    user-select: none;
+    padding: 10px 20px; /* Add horizontal padding */
+    background-color: #f0f0f0; /* Light background color */
+    border-radius: 5px; /* Rounded corners */
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .title mat-icon {
+    transition: transform 0.3s ease; /* Smooth transition for icon rotation */
+  }
+  
+  .title:hover {
+    background-color: #e0e0e0; /* Darker background color on hover */
+  }
+
+ 
+  
+  

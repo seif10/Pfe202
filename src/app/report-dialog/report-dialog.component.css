@@ -1,0 +1,31 @@
+.mat-dialog-title {
+    font-weight: bold;
+    color: #3f51b5;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+  }
+  
+  .mat-dialog-content {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .mat-dialog-actions {
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+  }
+  
+  button[mat-dialog-close] {
+    color: #3f51b5;
+    font-weight: bold;
+  }
+  
+  .dialog-button {
+    margin-right: 8px; /* Adjust the value as needed */
+  }
+  
+  .export-button {
+    background-color: #3f51b5;
+    color: white;
+  }
+  

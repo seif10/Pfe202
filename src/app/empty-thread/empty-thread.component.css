@@ -1,0 +1,20 @@
+.mat-dialog-title {
+    font-weight: bold;
+    color: #f44336; /* Red color for warning */
+  }
+  
+  .mat-dialog-content {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .mat-dialog-actions {
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+  }
+  
+  button {
+    color: #f44336; /* Red color for the button */
+    font-weight: bold;
+  }
+  

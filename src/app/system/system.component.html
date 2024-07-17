@@ -1,0 +1,45 @@
+<div *ngIf="grafanaIframeUrls.length > 0" class="stats-container">
+  <!-- Title with toggle functionality -->
+  <h3 class="mat-title title" (click)="toggleDashboard()" matTooltip="Click to show/hide dashboards" matTooltipPosition="above">
+    Stats
+    <mat-icon>{{ showDashboards ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+  </h3>
+
+  <!-- Grafana Dashboards -->
+   <div  *ngIf="showDashboards">
+    <div class="iframe-container">
+      <div *ngFor="let url of grafanaIframeUrls" class="iframe-item">
+        <iframe [src]="url" width="450" height="200" frameborder="1"></iframe>
+      </div>
+    </div>
+  
+    <!-- Additional Iframes -->
+    <div class="iframe-container2">
+      <div *ngIf="Cpu_memory_IframeUrl" class="iframe-itemm">
+        <iframe [src]="Cpu_memory_IframeUrl" width="680" height="250" frameborder="1"></iframe>
+      </div>
+  
+      <div *ngIf="space_utilisation_IframeUrl" class="iframe-itemm">
+        <iframe [src]="space_utilisation_IframeUrl" width="680" height="250" frameborder="1"></iframe>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+<div *ngIf="grafanaIframeUrls.length > 0" class="stats-container">
+  <!-- Title with toggle functionality -->
+  <h3 class="mat-title title" (click)="toggleDashboard2()" matTooltip="Click to show/hide dashboards" matTooltipPosition="above">
+    Disk
+    <mat-icon>{{ ShowDiskPanel ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+  </h3>
+
+  <!-- Grafana Dashboards -->
+   <div  *ngIf="ShowDiskPanel">
+    <div class="iframe-container">
+      <div *ngFor="let url of DiskIframeUrls" class="iframe-item">
+        <iframe [src]="url" width="450" height="200" frameborder="1"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
