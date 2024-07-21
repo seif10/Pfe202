@@ -1,0 +1,66 @@
+<div class="users-container">
+  <!-- Title with toggle functionality -->
+  <h3 class="mat-title title" (click)="toggleUsers()" matTooltip="Click to show/hide users" matTooltipPosition="above">
+    User List
+    <mat-icon>{{ showUsers ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+  </h3>
+
+  <!-- Add User Button -->
+  <div class="add-user-button-container">
+    <button mat-raised-button color="primary" (click)="navigateToAddUser()" class="add-user-button">
+      <mat-icon>add</mat-icon> Add User
+    </button>
+  </div>
+
+  <!-- Mat Table -->
+  <div *ngIf="showUsers">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.id }} </mat-cell>
+      </ng-container>
+
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.username }} </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.email }} </mat-cell>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.firstName }} </mat-cell>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{ user.lastName }} </mat-cell>
+      </ng-container>
+
+      <!-- Delete Column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef class="delete-cell"> Delete </mat-header-cell>
+        <mat-cell *matCellDef="let user" class="delete-cell">
+          <button mat-icon-button color="warn" (click)="deleteUser(user.username)" class="modern-delete-button">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

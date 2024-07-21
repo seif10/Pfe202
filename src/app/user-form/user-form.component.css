@@ -1,0 +1,84 @@
+/* styles.css */
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+  padding: 2em;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+mat-form-field .mat-form-field-wrapper {
+  background-color: #e3f2fd; /* Light blue shade */
+  padding: 0.5em; /* Add padding for better spacing */
+  border-radius: 5px; /* Rounded corners */
+}
+
+mat-form-field.mat-form-field-invalid .mat-form-field-wrapper {
+  background-color: #ffebee; /* Light red shade if invalid */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  width: 100%; /* Full width container for buttons */
+  justify-content: center; /* Center align buttons */
+  margin-top: 20px; /* Space above buttons */
+}
+
+.submit-button, .back-button {
+  font-size: 16px; /* Same font size for consistency */
+  padding: 0.75em 1.5em; /* Same padding for both buttons */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex; /* Ensure both buttons have the same layout style */
+  align-items: center; /* Vertically center text and icons */
+}
+
+.submit-button {
+  background-color: #1e88e5; /* Blue color for the submit button */
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+.submit-button:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}
+
+.submit-button[disabled] {
+  background-color: #9c9c9c;
+}
+
+.back-button {
+  background-color: #eeeeee; /* Light gray background for the back button */
+  color: #333;
+  font-weight: normal;
+  border: none; /* No border for consistency */
+}
+
+.back-button:hover {
+  background-color: #ddd; /* Slightly darker gray on hover */
+}
+
+h2.mat-title {
+  margin-bottom: 0.5em; /* Reduced margin to bring the title closer to the form */
+  color: #333;
+  text-align: center;
+  font-size: 2em; /* Larger font size */
+  font-weight: bold; /* Bolder font weight */
+}
+
+.form-container {
+  margin-top: 0; /* Remove margin to bring the form closer to the title */
+}

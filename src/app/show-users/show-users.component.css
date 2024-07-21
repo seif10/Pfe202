@@ -1,0 +1,110 @@
+/* Title */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align title content evenly */
+    cursor: pointer;
+    user-select: none;
+    padding: 12px 20px; /* Add horizontal padding */
+    background-color: #ffffff; /* White background color */
+    border-radius: 8px; /* Rounded corners */
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+  
+  .title mat-icon {
+    transition: transform 0.3s ease; /* Smooth transition for icon rotation */
+  }
+  
+  .title:hover {
+    background-color: #f9f9f9; /* Slightly darker background color on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  }
+  
+  /* Delete Button */
+  .mat-icon-button {
+    color: #f44336; /* Red color for the delete button */
+    transition: transform 0.3s, color 0.3s; /* Smooth transition */
+  }
+  
+  .mat-icon-button:hover {
+    background-color: rgba(244, 67, 54, 0.1); /* Light red background on hover */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+  }
+  
+  /* Modern Delete Button */
+  .modern-delete-button {
+    color: #f44336; /* Red color for the delete button */
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    background: none; /* Remove background */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+  .modern-delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+  }
+  
+  /* Add Button */
+  .add-user-button-container {
+    text-align: right; /* Aligns the button to the right */
+    margin-bottom: 20px; /* Reduced margin for better spacing */
+  }
+  
+  .add-user-button {
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    font-size: 14px; /* Font size */
+    padding: 8px 16px; /* Padding for better symmetry */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-user-button mat-icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 18px; /* Icon size */
+  }
+  
+  .add-user-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-1px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  }
+  
+  .add-user-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Custom focus outline */
+  }
+  
+  /* Table */
+  .mat-table {
+    width: 100%;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    text-align: center; /* Center align all columns */
+  }
+  
+  .mat-header-cell {
+    font-weight: bold; /* Bold header text */
+    background-color: #f5f5f5; /* Light gray background for headers */
+    padding: 12px; /* Padding for headers */
+  }
+  
+  .mat-cell {
+    padding: 12px; /* Padding for cells */
+  }
+  
+  .delete-cell {
+    width: 60px; /* Make the delete column wider */
+  }
+  

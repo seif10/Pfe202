@@ -37,7 +37,7 @@ export class ReportComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.components); // ensure it contains data
+    
   }
 
   exportReport(): void {
