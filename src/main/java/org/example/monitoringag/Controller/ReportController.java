@@ -12,7 +12,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/report")
-//@CrossOrigin(origins = "http://localhost:4200")
+//  @CrossOrigin(origins = "http://localhost:4200")
 public class ReportController {
     @Autowired
     ReportService reportService;

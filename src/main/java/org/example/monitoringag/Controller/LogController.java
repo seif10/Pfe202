@@ -1,8 +1,10 @@
 package org.example.monitoringag.Controller;
 
 import org.example.monitoringag.Entity.ParsedLog;
+import org.example.monitoringag.Entity.User;
 import org.example.monitoringag.Service.ILogService;
 import org.example.monitoringag.Service.ISystemMetricsService;
+import org.example.monitoringag.Service.KeycloakUserService;
 import org.example.monitoringag.Service.LogFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +15,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/log")
 public class LogController {
-
     @Autowired
     ILogService logService;
 
