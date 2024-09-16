@@ -2,7 +2,9 @@ package org.example.monitoringag.Service;
 
 
 import org.example.monitoringag.Entity.ParsedLog;
+import org.example.monitoringag.Entity.PasswordResetToken;
 import org.example.monitoringag.Entity.User;
+import org.example.monitoringag.Repository.PasswordResetTokenRepository;
 import org.example.monitoringag.Repository.UserRepository;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.RealmResource;
@@ -11,19 +13,35 @@ import org.keycloak.jose.jwk.JWK;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class KeycloakUserService {
 
     @Autowired
     private Keycloak keycloak;
+    @Autowired
+    private JavaMailSender mailSender;
+
+    @Autowired
+    private PasswordResetTokenRepository passwordResetTokenRepository;
+
 
     @Autowired
     private UserRepository userRepository;
+
+    @Value("${application.resetPassword.url}")
+    private String resetPasswordUrl; // URL base pour la réinitialisation du mot de passe
+
+
 
     private String realm = "monitoringagent";
 
@@ -107,7 +125,29 @@ public class KeycloakUserService {
     }
 
 
+
     public List<User> showLUsersFromDB(){
         return userRepository.findAll();
     }
+
+
+    // Password Reset Request :
+
+    public void savePasswordResetToken(String userId, String token) {
+        PasswordResetToken resetToken = new PasswordResetToken();
+        resetToken.setUserId(userId);
+        resetToken.setToken(token);
+        passwordResetTokenRepository.save(resetToken);
+    }
+
+    public String findUserIdByResetToken(String token) {
+        Optional<PasswordResetToken> resetToken = passwordResetTokenRepository.findByToken(token);
+        return resetToken.map(PasswordResetToken::getUserId).orElse(null);
+    }
+
+    public void deletePasswordResetToken(String token) {
+        passwordResetTokenRepository.deleteByToken(token);
+    }
+
+
 }

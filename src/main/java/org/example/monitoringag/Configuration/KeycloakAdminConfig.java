@@ -19,7 +19,7 @@ public class KeycloakAdminConfig {
                 .realm("monitoringagent")
                 .clientId("monitoringagentback")
                 .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
-                .clientSecret("pf5GYyqUQEJvrauY7fNkNGZylSnPY79m")
+                .clientSecret("XqQPb2MWF1s4z3XY1hcQD00SPqSzkmY5")
                 .username("admin")
                 .password("admin")
                 .resteasyClient(new ResteasyClientBuilder().connectionPoolSize(10).build())

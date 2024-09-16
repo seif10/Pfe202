@@ -3,14 +3,15 @@ package org.example.monitoringag.Service;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.example.monitoringag.Entity.ParsedLog;
+import org.example.monitoringag.Entity.Report;
 import org.example.monitoringag.Repository.ParserLogRepository;
+import org.example.monitoringag.Repository.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Service
@@ -18,6 +19,19 @@ public class ReportService {
 
     @Autowired
     ParserLogRepository parserLogRepository;
+
+    @Autowired
+    ReportRepository reportRepository;
+
+
+    public List<Report> getAllReports() {
+        return reportRepository.findAll();
+    }
+
+    public Report getReport(long id){
+        return reportRepository.findById(id).orElse(null);
+    }
+
 
     public String exportLogReport(String reportFormat) throws FileNotFoundException, JRException {
 
@@ -43,7 +57,7 @@ public class ReportService {
         return "report generated in path : " + path;
     }
 
-    public String exportLogReportParThreadOrUser(String threadOrUser) throws FileNotFoundException, JRException {
+    public String exportLogReportParThreadOrUser(String threadOrUser,String reportName) throws FileNotFoundException, JRException {
 
         String path = "C:\\Users\\seifb\\Desktop\\pfe\\JaspReports";
 
@@ -62,7 +76,16 @@ public class ReportService {
         parameters.put("createdBy", "Java Techie");
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
-        JasperExportManager.exportReportToPdfFile(jasperPrint, path + "\\logsParThreadOrUser(Pdf).pdf");
+        String reportPath = path + "\\logsParThreadOrUser(Pdf)"+reportName+".pdf";
+        JasperExportManager.exportReportToPdfFile(jasperPrint, reportPath);
+
+        //saving report to DB
+        Report report = new Report();
+        report.setTitle(reportName);
+        report.setContent("Generated report for component: " + threadOrUser);
+        report.setFilePath(reportPath);
+
+        reportRepository.save(report);
         return "PDF report generated in path : " + path;
 
     }

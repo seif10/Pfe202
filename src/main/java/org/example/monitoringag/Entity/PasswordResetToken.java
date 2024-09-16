@@ -8,23 +8,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@RequiredArgsConstructor
 @Getter
 @Setter
-public class User {
-
+@RequiredArgsConstructor
+@Table(name = "password_reset_tokens")
+public class PasswordResetToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String password;
 
-
+    private String userId;
+    private String token;
 
     // Getters and Setters
 }

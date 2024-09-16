@@ -37,13 +37,10 @@ public class LogFileService {
             session.setPassword(PASSWORD);
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect();
-
             System.out.println("connecté à palmyra avec succée !!");
-
             // Open SFTP channel
             sftpChannel = (ChannelSftp) session.openChannel("sftp");
             sftpChannel.connect();
-
             // List files in the remote directory
             for (String folder : appLogFolderNames){
                 Vector<ChannelSftp.LsEntry> files = sftpChannel.ls(REMOTE_DIRECTORY +"/"+ folder + "/*.log");
@@ -60,8 +57,6 @@ public class LogFileService {
                             "30s"
                     );
                 }
-
-
             }
         } catch (Exception e) {
             e.printStackTrace();
